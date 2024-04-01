@@ -2,6 +2,7 @@ const ShortUniqueId = require('short-unique-id');
 const Url = require('../models/url.model');
 
 const shortenURL = async (req, res) => {
+    console.log(req)
     const originalUrl = req.body.url; // Get the originalUrl from the request body
     const userID = req.user?._id || null; // Get the userID from the request body
 
