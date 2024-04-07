@@ -21,7 +21,8 @@ function Redirection() {
 
   useEffect(() => {
     handleRedirect();
-  });
+    console.log('Redirecting to', shortID);
+  },[]);
 
   return (
     <div className="h-full w-full sm:p-10 p-4 flex items-center justify-center text-center tracking-wider">

@@ -1,16 +1,20 @@
 const ShortUniqueId = require('short-unique-id');
 const Url = require('../models/url.model');
+const User = require('../models/user.model');
 
 const shortenURL = async (req, res) => {
-    console.log(req)
+    
     const originalUrl = req.body.url; // Get the originalUrl from the request body
-    const userID = req.user?._id || null; // Get the userID from the request body
+    const userID = req.body.userID || null; // Get the userID from the request body
 
     if (!originalUrl) { // If the originalUrl is not provided
         return res.status(400).json({ message: 'URL is required' }); // Return an error response
     }
 
     try {
+
+        const user = await User.findById(userID); // Find the user with the userID
+
         if(userID){
             const isAlreadyPresent = await Url.findOne({ $and: [{ userID }, { originalUrl }] }); // Find a Url document with the originalUrl
 
@@ -21,7 +25,7 @@ const shortenURL = async (req, res) => {
 
         const shortID = generateShortID(); // Generate a shortID
 
-        const url = new Url({ originalUrl, shortID, userID: userID?userID:null }); // Create a new Url document
+        const url = new Url({ originalUrl, shortID, userID: user?user._id:null }); // Create a new Url document
 
         await url.save(); // Save the Url document
 

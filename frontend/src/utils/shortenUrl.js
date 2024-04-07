@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const shortenUrl = async (url) => {
+const shortenUrl = async (url, user) => {
   try {
-    const reqURL = `${import.meta.env.VITE_REACT_BACKEND_URL}/url/shorten`
-    console.log(reqURL);
+    const reqURL = `${import.meta.env.VITE_REACT_BACKEND_URL}/api/url/shorten`
     const response = await axios.post(reqURL, {
-      url: url,
+      url,
+      userID: user?user.id:null ,
     });
     return response.data.shortID;
   } catch (error) {

@@ -15,7 +15,7 @@ dotenv.config(); // Load the .env file
 app.use(cors()); // Enable CORS
 app.use(express.json()); // Enable the server to parse JSON bodies
 app.use('/api/users', userRouter); // Use the user route for requests to the /api/users path
-app.use('/url', urlRouter); // Use the authorization middleware
+app.use('/api/url', urlRouter); // Use the authorization middleware
 
 app.get('/verify/:shortID', verifyUrl)
 

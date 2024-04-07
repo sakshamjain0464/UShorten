@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Home from "./components/Home";
 import Redirection from "./components/Redirection";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 const routes = [
     {
@@ -13,15 +15,15 @@ const routes = [
                 element : <Home />
             },
             {
-                path : '/about',
-                element : <h1>About</h1>
+                path : '/login',
+                element : <Login />
             },
             {
-                path : '/contact',
-                element : <h1>Contact</h1>
+                path : '/signup',
+                element : <Signup />
             },
             {
-                path : '/:shortID',
+                path : '/s/:shortID',
                 element : <Redirection />
             }
         ]

@@ -7,7 +7,7 @@ const { validationResult } = require('express-validator'); // Import the validat
 dotenv.config()
 
 const login = async (req, res) => {
-
+    console.log('login')
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
