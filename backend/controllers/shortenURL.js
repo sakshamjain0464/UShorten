@@ -29,7 +29,7 @@ const shortenURL = async (req, res) => {
 
         await url.save(); // Save the Url document
 
-        res.json({ shortID: shortID}); // Send the Url document as a response
+        return res.json({ shortID: shortID}); // Send the Url document as a response
     }
     catch (err) {
         return res.status(500).json({ message: err.message });

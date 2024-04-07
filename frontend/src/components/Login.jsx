@@ -3,6 +3,7 @@ import login from "../utils/login";
 import {useDispatch, useSelector } from "react-redux";
 import { setLogin } from "../redux/slices/userSlice";
 import { useNavigate, Link } from "react-router-dom";
+import GoogleButton from "./GoogleButton";
 
 const Login = () => {
 
@@ -56,6 +57,8 @@ const Login = () => {
             className="p-2 rounded-md bg-red-700 text-white font-semibold">
             Login
           </button>
+
+          <GoogleButton />
 
           <p>OR</p>
 

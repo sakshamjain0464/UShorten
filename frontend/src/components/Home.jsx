@@ -31,6 +31,7 @@ function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+   setModalClosed(true)
     const shortID = await shortenUrl(url, user);
     if (!shortID) {
       alert("Error in Shortening URL");

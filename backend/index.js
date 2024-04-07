@@ -6,6 +6,9 @@ const authorization = require('./middlewares/authorization'); // Import the auth
 const urlRouter = require('./routes/url.route'); // Import the url route
 const verifyUrl = require('./controllers/verifyURL'); // Import the verifyUrl middleware
 const cors = require('cors'); // Import cors
+const passport = require('passport'); // Import passport
+require('./passport'); // Import the passport.js file
+
 
 connectToDb(); // Call the connectToDb function
 
@@ -13,6 +16,7 @@ const app = express(); // Create an express app
 dotenv.config(); // Load the .env file
 
 app.use(cors()); // Enable CORS
+app.use(passport.initialize()); // Initialize passport
 app.use(express.json()); // Enable the server to parse JSON bodies
 app.use('/api/users', userRouter); // Use the user route for requests to the /api/users path
 app.use('/api/url', urlRouter); // Use the authorization middleware

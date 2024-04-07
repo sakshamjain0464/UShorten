@@ -14,9 +14,13 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-session": "^1.18.0",
     "express-validator": "^7.0.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.2.4",
+    "passport": "^0.7.0",
+    "passport-google-oauth": "^2.0.0",
+    "passport-google-oidc": "^0.1.0",
     "short-unique-id": "^5.0.3"
   }
 }

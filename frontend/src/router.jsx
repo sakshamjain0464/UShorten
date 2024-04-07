@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Redirection from "./components/Redirection";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import GoogleRedirect from "./components/GoogleRedirect";
 
 const routes = [
     {
@@ -21,6 +22,10 @@ const routes = [
             {
                 path : '/signup',
                 element : <Signup />
+            },
+            {
+                path : '/auth/google/:token/:id',
+                element : <GoogleRedirect />
             },
             {
                 path : '/s/:shortID',
