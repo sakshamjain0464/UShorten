@@ -17,7 +17,7 @@ async function googleLogin (req, res) {
       
       const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
 
-      return res.redirect(`http://localhost:5173/auth/google/${token}/${user._id}`);
+      return res.redirect(`https://u-shorten-tan.vercel.app/auth/google/${token}/${user._id}`);
     }
     catch (error) {
       console.log(error);

@@ -40,6 +40,7 @@ function Home() {
 
   useEffect(() => {
     if (!login) return;
+    setModalClosed(true);
     handleListUrls();
   }, [user, login]);
 
@@ -70,7 +71,7 @@ function Home() {
       return;
     }
 
-    setShortUrl(`localhost:5173/s/${shortID}`);
+    setShortUrl(`https://u-shorten-tan.vercel.app/s/${shortID}`);
     setModalClosed(false);
     setUrls([...urls, { shortID, originalUrl: url, clicks: 0 }]);
     setUrl("");

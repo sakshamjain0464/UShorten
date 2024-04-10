@@ -12,6 +12,7 @@ function Redirection() {
     if (originalUrl) {
       if(originalUrl === 500){
         alert("Internal Server Error");
+        window.location.href = "https://u-shorten-tan.vercel.app/";
         setFetched(true);
         setUrl(null);
         return;
