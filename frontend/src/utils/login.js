@@ -6,10 +6,17 @@ const login = async (username, password) => {
         console.log(reqURL);
         const body = { username, password };
         const response = await axios.post(reqURL, body);
+
         return response.data;
     } catch (error) {
         console.error(error);
-        return null;
+        if(error.response.status === 500) {
+            return 500;
+        }
+        if(error.response.status === 400) {
+            return 400;
+        }
+        return null
     }
 };
 

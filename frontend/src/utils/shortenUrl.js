@@ -10,6 +10,15 @@ const shortenUrl = async (url, user) => {
     return response.data.shortID;
   } catch (error) {
     console.error(error);
+
+    if (error.response.status === 401) {
+      return 401
+    }
+
+    if (error.response.status === 402) {
+      return 402
+    }
+
     return null;
   }
 }

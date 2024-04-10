@@ -3,26 +3,32 @@ import { useState } from "react";
 import signup from "../utils/signup";
 import { useNavigate } from "react-router-dom";
 import GoogleButton from "./GoogleButton";
+import { TailSpin } from "react-loader-spinner";
+import toast from "react-hot-toast";
 
 function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     const response = await signup(username, password, email);
 
-    if (response) {
-      console.log(response);
-      alert("Signup Successful");
+    if (response !== 402 && response !== 500 && response !== null) {
+      toast.success("Signup Successful");
       navigate("/login");
-    } else {
-      alert("Signup Failed");
+    } else if(response === 402) {
+      toast.error("User Already Exists! Please Login");
+    }else  {
+      toast.error("Error Signing Up! Please try again later!");
     }
+    setLoading(false);
   };
 
   return (
@@ -73,11 +79,26 @@ function Signup() {
             value={password}
             required
           />
-          <button
-            type="submit"
-            className="p-2 rounded-md bg-red-700 text-white font-semibold">
-            Signup
-          </button>
+          {loading ? (
+              <div className="w-full flex justify-center">
+                <TailSpin
+                visible={true}
+                height="40"
+                width="40"
+                color="#c2410c"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+              />
+              </div>
+            ) : (
+              <button
+                type="submit"
+                className="p-2 rounded-md bg-red-700 text-white font-semibold">
+                Signup
+              </button>
+            )}
 
           <GoogleButton />
 

@@ -6,8 +6,20 @@ const signup = async (username, password, email) => {
         console.log(reqURL);
         const body = { username, password, email };
         const response = await axios.post(reqURL, body);
+
+        
+
         return response.data;
     } catch (error) {
+
+        if(error.response.status === 500) {
+            return 500;
+        }
+
+        if(error.response.status === 402) {
+            return 402;
+        }
+
         console.error(error);
         return null;
     }

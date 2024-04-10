@@ -5,9 +5,13 @@ const fetchUrl = async (shortID) => {
         const reqURL = `${import.meta.env.VITE_REACT_BACKEND_URL}/verify/${shortID}`
         console.log(reqURL);
         const response = await axios.get(reqURL);
+
         return response.data.originalUrl;
       } catch (error) {
         console.error(error);
+        if(error.response.status === 500) {
+          return null;
+        }
         return null;
       }
 }

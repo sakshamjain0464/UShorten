@@ -10,6 +10,12 @@ function Redirection() {
   const handleRedirect = async () => {
     const originalUrl = await fetchUrl(shortID);
     if (originalUrl) {
+      if(originalUrl === 500){
+        alert("Internal Server Error");
+        setFetched(true);
+        setUrl(null);
+        return;
+      }
       setFetched(true);
       setUrl(originalUrl);
       window.location.href = originalUrl;

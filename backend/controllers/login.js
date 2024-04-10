@@ -27,7 +27,7 @@ const login = async (req, res) => {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
 
-        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET); 
 
         return res.status(200).json({ message: 'Login successful' , token, userId: user._id});
     }

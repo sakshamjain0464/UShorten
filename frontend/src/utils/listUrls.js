@@ -9,9 +9,18 @@ const fetchUrl = async (token) => {
                 Authorization: token
             }
         });
+
+        
         return response.data;
       } catch (error) {
         console.error(error);
+
+        if(error.response.status === 500) {
+          alert("Internal Server Error")
+          return 500;
+      }
+
+
         return null;
       }
 }

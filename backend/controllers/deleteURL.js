@@ -2,12 +2,8 @@ const URL  = require('../models/url.model');
 
 const deleteURL = async (req, res) => {
 
-    console.log(req.body)
-
     const shortID = req.body.shortID;
     const userID = req.user._id;
-
-    console.log(shortID, userID)
 
     try {
         const url = await URL.findOneAndDelete({userID, shortID});

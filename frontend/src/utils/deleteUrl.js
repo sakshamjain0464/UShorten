@@ -12,9 +12,13 @@ const deleteUrl = async (shortID, token) => {
                 shortID
             }
         });
+
         return response.data;
     } catch (error) {
         console.error(error);
+        if(error.response.status === 500) {
+            return 500;
+        }
         return null;
     }
 }
