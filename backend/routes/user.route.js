@@ -19,7 +19,8 @@ router.post('/login', [body('username').isLength({ min: 7 }), body('password').i
 
 router.get('/login/google', passport.authenticate('google', {
     scope: ["email", "profile"],
-  })); // Create a new POST endpoint with the /login path, the validations array, and the login function
+    prompt: 'select_account'
+  })); // POST endpoint with the /login path, the validations array, and the login function
 
-router.get('/google/callback', passport.authenticate('google', { failureRedirect: "/", session: false, prompt: 'select_account' }), googleLogin)
+router.get('/google/callback', passport.authenticate('google', { failureRedirect: "https://u-shorten-tan.vercel.app/login", session: false }), googleLogin)
 module.exports = router; // Export the router
