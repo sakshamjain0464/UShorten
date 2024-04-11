@@ -190,7 +190,7 @@ function Home() {
           {urls.length ? (
             <>
               <h1 className="text-2xl font-medium text-center">Your URLs</h1>
-              <div className="md:min-w-[60%] flex flex-col items-center min-w-full w-full max-h-full h-fit text-center mt-5 px-5 py-6 overflow-auto  bg-white select-text">
+              <div className="md:min-w-[60%] flex flex-col  min-w-full w-full max-h-full h-fit text-center mt-5 px-5 py-6 overflow-auto  bg-white select-text">
                 {tableLoading ? (
                   <Watch
                     visible={true}
