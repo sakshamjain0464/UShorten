@@ -51,22 +51,24 @@ function Home() {
     setCopied(false);
     const shortID = await shortenUrl(url, user);
     if (shortID) {
-
       if (shortID === 401) {
         toast.error("URL is required");
+        setUrl("");
+        setUrlLoading(false);
         return;
       }
 
       if (shortID === 402) {
         toast.error("URL is already present");
+        setUrl("");
+        setUrlLoading(false);
         return;
       }
 
       toast.success("URL generated successfully");
-
-    }
-    else{
+    } else {
       toast.error("Error Generating URL");
+      setUrlLoading(false);
       setShortUrl("");
       return;
     }
@@ -245,14 +247,14 @@ function Home() {
                         ))}
                       </tbody>
                     </table>
-                    <button
-                      className="w-fit px-3 py-2 mt-3 uppercase text-3xl font-medium select-none text-white tracking-widest rounded-md bg-orange-600 hover:bg-orange-300"
-                      onClick={handleListUrls}>
-                      <IoReloadCircle />
-                    </button>
                   </>
                 )}
               </div>
+              <button
+                className="w-fit px-3 py-2 mt-3 uppercase text-3xl font-medium select-none text-white tracking-widest rounded-md bg-orange-600 hover:bg-orange-300"
+                onClick={handleListUrls}>
+                <IoReloadCircle />
+              </button>
               <button
                 className="w-fit px-3 py-2 mt-3 uppercase font-medium select-none text-white tracking-widest rounded-md bg-orange-600 hover:bg-orange-300"
                 onClick={handleDownload}>
