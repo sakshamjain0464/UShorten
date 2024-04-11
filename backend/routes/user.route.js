@@ -21,5 +21,5 @@ router.get('/login/google', passport.authenticate('google', {
     scope: ["email", "profile"],
   })); // Create a new POST endpoint with the /login path, the validations array, and the login function
 
-router.get('/google/callback', passport.authenticate('google', { failureRedirect: "/", session: false }), googleLogin)
+router.get('/google/callback', passport.authenticate('google', { failureRedirect: "/", session: false, prompt: 'select_account' }), googleLogin)
 module.exports = router; // Export the router
