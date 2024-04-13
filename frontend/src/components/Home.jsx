@@ -192,16 +192,18 @@ function Home() {
               <h1 className="text-2xl font-medium text-center">Your URLs</h1>
               <div className="md:min-w-[60%] flex flex-col  min-w-full w-full max-h-full h-fit text-center mt-5 px-5 py-6 overflow-auto  bg-white select-text">
                 {tableLoading ? (
-                  <Watch
-                    visible={true}
-                    height="80"
-                    width="80"
-                    radius="48"
-                    color="#c2410c"
-                    ariaLabel="watch-loading"
-                    wrapperStyle={{}}
-                    wrapperClass=""
-                  />
+                  <div className="w-full h-full flex items-center justify-center">
+                    <Watch
+                      visible={true}
+                      height="80"
+                      width="80"
+                      radius="48"
+                      color="#c2410c"
+                      ariaLabel="watch-loading"
+                      wrapperStyle={{}}
+                      wrapperClass=""
+                    />
+                  </div>
                 ) : (
                   <>
                     <table className="w-full even:bg-slate-400">
