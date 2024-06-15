@@ -16,7 +16,7 @@ const app = express(); // Create an express app
 dotenv.config(); // Load the .env file
 
 app.use(cors({
-  origin: 'https://u-shorten-tan.vercel.app/',
+  origin: '*',
   optionsSuccessStatus: 200 
 })); // Enable CORS
 app.use(passport.initialize()); // Initialize passport
