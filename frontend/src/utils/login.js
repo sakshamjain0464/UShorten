@@ -5,7 +5,11 @@ const login = async (username, password) => {
         const reqURL = `${import.meta.env.VITE_REACT_BACKEND_URL}/api/users/login`;
         console.log(reqURL);
         const body = { username, password };
-        const response = await axios.post(reqURL, body);
+        const response = await axios.post(reqURL, {headers: {
+
+            'Access-Control-Allow-Origin': '*',
+            mode: 'no-cors',
+        }},body);
 
         return response.data;
     } catch (error) {

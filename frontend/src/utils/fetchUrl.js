@@ -4,7 +4,11 @@ const fetchUrl = async (shortID) => {
     try {
         const reqURL = `${import.meta.env.VITE_REACT_BACKEND_URL}/verify/${shortID}`
         console.log(reqURL);
-        const response = await axios.get(reqURL);
+        const response = await axios.get(reqURL, {headers: {
+
+          'Access-Control-Allow-Origin': '*',
+          mode: 'no-cors',
+      }},);
 
         return response.data.originalUrl;
       } catch (error) {

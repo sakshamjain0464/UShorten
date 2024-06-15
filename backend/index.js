@@ -15,7 +15,10 @@ connectToDb(); // Call the connectToDb function
 const app = express(); // Create an express app
 dotenv.config(); // Load the .env file
 
-app.use(cors()); // Enable CORS
+app.use(cors({
+  origin: 'https://u-shorten-tan.vercel.app/',
+  optionsSuccessStatus: 200 
+})); // Enable CORS
 app.use(passport.initialize()); // Initialize passport
 app.use(express.json()); // Enable the server to parse JSON bodies
 app.use('/api/users', userRouter); // Use the user route for requests to the /api/users path

@@ -5,7 +5,11 @@ const signup = async (username, password, email) => {
         const reqURL = `${import.meta.env.VITE_REACT_BACKEND_URL}/api/users/signup`;
         console.log(reqURL);
         const body = { username, password, email };
-        const response = await axios.post(reqURL, body);
+        const response = await axios.post(reqURL, {headers: {
+
+            'Access-Control-Allow-Origin': '*',
+            mode: 'no-cors',
+        }},body);
 
         
 

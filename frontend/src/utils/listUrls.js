@@ -6,7 +6,9 @@ const fetchUrl = async (token) => {
         console.log(reqURL);
         const response = await axios.post(reqURL, {},{
             headers: {
-                Authorization: token
+                Authorization: token,
+                mode: 'no-cors',
+                'Access-Control-Allow-Origin': '*',
             }
         });
 
